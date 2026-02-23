@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "nuxt-guided-tour-monorepo",
+  "description": "Nuxt Guided Tour - A guided tour/onboarding module for Nuxt applications",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm -C packages/nuxt-guided-tour dev",
+    "dev:prepare": "pnpm -C packages/nuxt-guided-tour dev:prepare",
+    "build": "pnpm -C packages/nuxt-guided-tour build",
+    "docs:dev": "pnpm -C packages/docs dev",
+    "docs:generate": "pnpm -C packages/docs generate",
+    "sample:dev": "pnpm -C packages/sample dev",
+    "sample:generate": "pnpm -C packages/sample generate",
+    "lint": "eslint ."
+  }
+}

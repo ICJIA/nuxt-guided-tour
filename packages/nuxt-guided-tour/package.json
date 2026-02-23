@@ -1,0 +1,54 @@
+{
+  "name": "nuxt-guided-tour",
+  "version": "0.1.0",
+  "description": "A guided tour/onboarding module for Nuxt applications",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ICJIA/nuxt-guided-tour"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "types": "./dist/types.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nuxi dev playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxi prepare playground",
+    "build": "nuxt-module-build build",
+    "prepack": "nuxt-module-build build"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.17.0"
+  },
+  "peerDependencies": {
+    "@nuxt/ui": ">=3.0.0",
+    "@vueuse/core": ">=10.0.0",
+    "nuxt": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nuxt/ui": {
+      "optional": false
+    },
+    "@vueuse/core": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.0",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/ui": "^3.0.0",
+    "@vueuse/core": "^12.0.0",
+    "@vueuse/nuxt": "^12.0.0",
+    "nuxt": "^3.17.0",
+    "typescript": "^5.7.0",
+    "vue-tsc": "^3.2.5"
+  }
+}

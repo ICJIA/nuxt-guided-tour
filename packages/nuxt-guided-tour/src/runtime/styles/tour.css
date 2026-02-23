@@ -1,0 +1,234 @@
+/**
+ * nuxt-guided-tour — Tour Module Styles
+ * CSS for tour highlight effects and animations.
+ * Automatically included by the module.
+ */
+
+/* =============================================================================
+   TOUR POPOVER Z-INDEX
+   ============================================================================= */
+
+[data-radix-popper-content-wrapper]:has([role="dialog"][aria-labelledby^="tour-title"]) {
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
+body > [data-radix-popper-content-wrapper]:has(.tour-card) {
+  z-index: 99999 !important;
+}
+
+.tour-popover-wrapper {
+  z-index: 99999 !important;
+}
+
+.tour-card,
+[aria-labelledby^="tour-title-"] {
+  position: relative;
+  z-index: 99999;
+  pointer-events: auto !important;
+}
+
+.tour-card button,
+[aria-labelledby^="tour-title-"] button {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* =============================================================================
+   TOUR HIGHLIGHT RING
+   Applied to elements with data-tour-active="true"
+   Uses vivid orange-yellow colors for maximum visibility with pulsing glow
+   ============================================================================= */
+
+[data-tour-active="true"] {
+  position: relative;
+  z-index: 9998;
+}
+
+[data-tour-active="true"]::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 5px solid #ff9500;
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 8px rgba(255, 200, 0, 0.6),
+    0 0 40px rgba(255, 165, 0, 0.9),
+    0 0 80px rgba(255, 140, 0, 0.6),
+    0 0 120px rgba(255, 100, 0, 0.3),
+    inset 0 0 25px rgba(255, 200, 0, 0.2);
+  pointer-events: none;
+  animation: tour-highlight-pulse 1s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes tour-highlight-pulse {
+  0%, 100% {
+    border-color: #ff9500;
+    box-shadow:
+      0 0 0 8px rgba(255, 200, 0, 0.6),
+      0 0 40px rgba(255, 165, 0, 0.9),
+      0 0 80px rgba(255, 140, 0, 0.6),
+      0 0 120px rgba(255, 100, 0, 0.3),
+      inset 0 0 25px rgba(255, 200, 0, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    border-color: #ffc800;
+    box-shadow:
+      0 0 0 12px rgba(255, 220, 0, 0.7),
+      0 0 60px rgba(255, 200, 0, 1),
+      0 0 100px rgba(255, 165, 0, 0.8),
+      0 0 150px rgba(255, 140, 0, 0.4),
+      inset 0 0 35px rgba(255, 220, 0, 0.3);
+    transform: scale(1.03);
+  }
+}
+
+/* =============================================================================
+   DARK MODE ADJUSTMENTS
+   ============================================================================= */
+
+.dark [data-tour-active="true"]::before {
+  border-color: #ffaa00;
+  box-shadow:
+    0 0 0 10px rgba(255, 220, 0, 0.7),
+    0 0 50px rgba(255, 180, 0, 1),
+    0 0 100px rgba(255, 150, 0, 0.8),
+    0 0 150px rgba(255, 120, 0, 0.4),
+    inset 0 0 30px rgba(255, 220, 0, 0.25);
+  animation: tour-highlight-pulse-dark 1s ease-in-out infinite;
+}
+
+@keyframes tour-highlight-pulse-dark {
+  0%, 100% {
+    border-color: #ffaa00;
+    box-shadow:
+      0 0 0 10px rgba(255, 220, 0, 0.7),
+      0 0 50px rgba(255, 180, 0, 1),
+      0 0 100px rgba(255, 150, 0, 0.8),
+      0 0 150px rgba(255, 120, 0, 0.4),
+      inset 0 0 30px rgba(255, 220, 0, 0.25);
+    transform: scale(1);
+  }
+  50% {
+    border-color: #ffdd00;
+    box-shadow:
+      0 0 0 14px rgba(255, 240, 0, 0.8),
+      0 0 70px rgba(255, 220, 0, 1),
+      0 0 130px rgba(255, 180, 0, 0.9),
+      0 0 180px rgba(255, 150, 0, 0.5),
+      inset 0 0 40px rgba(255, 240, 0, 0.35);
+    transform: scale(1.04);
+  }
+}
+
+/* =============================================================================
+   REDUCED MOTION
+   Respects user's motion preferences (WCAG 2.3.3)
+   ============================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tour-active="true"]::before {
+    animation: none;
+    transform: none;
+    border-color: #ff9500;
+    box-shadow:
+      0 0 0 8px rgba(255, 200, 0, 0.6),
+      0 0 40px rgba(255, 165, 0, 0.8);
+  }
+
+  .dark [data-tour-active="true"]::before {
+    animation: none;
+    transform: none;
+    border-color: #ffaa00;
+    box-shadow:
+      0 0 0 10px rgba(255, 220, 0, 0.7),
+      0 0 50px rgba(255, 180, 0, 0.9);
+  }
+
+  [data-tour-overflow="true"][data-tour-active="true"] {
+    animation: none;
+  }
+
+  .dark [data-tour-overflow="true"][data-tour-active="true"] {
+    animation: none;
+  }
+}
+
+/* =============================================================================
+   FOCUS VISIBLE OVERRIDE
+   ============================================================================= */
+
+[data-tour-active="true"]:focus-visible {
+  outline: 3px solid #ff9500;
+  outline-offset: 6px;
+}
+
+[data-tour-active="true"]:focus-visible::before {
+  border-color: transparent;
+}
+
+.dark [data-tour-active="true"]:focus-visible {
+  outline-color: #ffaa00;
+}
+
+/* =============================================================================
+   OVERFLOW ELEMENT HIGHLIGHTS
+   For elements with overflow:hidden, use outline instead of ::before
+   (outline is not clipped by overflow). Auto-detected by useTour composable.
+   ============================================================================= */
+
+[data-tour-overflow="true"][data-tour-active="true"] {
+  outline: 6px solid #ff9500 !important;
+  outline-offset: -6px;
+  box-shadow:
+    inset 0 0 40px rgba(255, 200, 0, 0.4),
+    0 0 60px rgba(255, 165, 0, 0.7);
+  animation: tour-overflow-pulse 1s ease-in-out infinite;
+}
+
+/* Hide the default ::before for overflow elements since we use outline */
+[data-tour-overflow="true"][data-tour-active="true"]::before {
+  display: none;
+}
+
+@keyframes tour-overflow-pulse {
+  0%, 100% {
+    outline-color: #ff9500;
+    box-shadow:
+      inset 0 0 40px rgba(255, 200, 0, 0.4),
+      0 0 60px rgba(255, 165, 0, 0.7);
+  }
+  50% {
+    outline-color: #ffc800;
+    box-shadow:
+      inset 0 0 60px rgba(255, 220, 0, 0.5),
+      0 0 90px rgba(255, 200, 0, 0.9);
+  }
+}
+
+/* Dark mode for overflow highlights */
+.dark [data-tour-overflow="true"][data-tour-active="true"] {
+  outline-color: #ffaa00 !important;
+  box-shadow:
+    inset 0 0 50px rgba(255, 220, 0, 0.45),
+    0 0 80px rgba(255, 180, 0, 0.8);
+  animation: tour-overflow-pulse-dark 1s ease-in-out infinite;
+}
+
+@keyframes tour-overflow-pulse-dark {
+  0%, 100% {
+    outline-color: #ffaa00;
+    box-shadow:
+      inset 0 0 50px rgba(255, 220, 0, 0.45),
+      0 0 80px rgba(255, 180, 0, 0.8);
+  }
+  50% {
+    outline-color: #ffdd00;
+    box-shadow:
+      inset 0 0 70px rgba(255, 240, 0, 0.55),
+      0 0 120px rgba(255, 220, 0, 1);
+  }
+}
