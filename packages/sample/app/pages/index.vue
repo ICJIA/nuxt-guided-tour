@@ -29,9 +29,9 @@ function restartTour() {
       <div class="header-inner">
         <h1 class="logo">SampleApp</h1>
         <nav class="header-nav">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="#" data-tour="nav-home">Home</a>
+          <a href="#" data-tour="nav-about">About</a>
+          <a href="#" data-tour="nav-contact">Contact</a>
           <!--
             TourTrigger: A pre-built button to restart the tour.
             You can place this anywhere in your UI.
@@ -58,6 +58,17 @@ function restartTour() {
         This is a sample Nuxt application demonstrating the nuxt-guided-tour module.
         Every element with a <code>data-tour</code> attribute can be highlighted in the guided tour.
       </p>
+    </section>
+
+    <!-- Launch Tour Card -->
+    <section class="tour-launch-section">
+      <div class="tour-launch-card" role="button" tabindex="0" @click="restartTour" @keydown.enter="restartTour">
+        <UIcon name="i-heroicons-play-circle" class="tour-launch-icon" />
+        <h3 class="tour-launch-title">Take the Guided Tour</h3>
+        <p class="tour-launch-description">
+          See how nuxt-guided-tour highlights elements, navigates steps, and provides an accessible onboarding experience.
+        </p>
+      </div>
     </section>
 
     <!--
@@ -209,6 +220,55 @@ body {
   background: var(--ui-bg-elevated);
   border-radius: 0.25rem;
   font-size: 0.9em;
+}
+
+/* Tour Launch Card */
+.tour-launch-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem 3rem;
+}
+
+.tour-launch-card {
+  max-width: 420px;
+  width: 100%;
+  padding: 2rem;
+  background: var(--ui-bg-elevated);
+  border: 2px solid var(--ui-primary);
+  border-radius: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tour-launch-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tour-launch-card:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+
+.tour-launch-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--ui-primary);
+  margin-bottom: 0.75rem;
+}
+
+.tour-launch-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.tour-launch-description {
+  font-size: 0.875rem;
+  color: var(--ui-text-muted);
+  margin: 0;
+  line-height: 1.6;
 }
 
 /* Features */

@@ -5,6 +5,8 @@
 
 A guided tour/onboarding module for Nuxt applications. WCAG 2.1 AA compliant with full keyboard navigation and screen reader support.
 
+**[Live Demo](https://nuxt-guided-tour.netlify.app)**
+
 ## Features
 
 - Step-by-step guided tours with vivid highlight rings
@@ -63,7 +65,14 @@ Add to `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['nuxt-guided-tour']
+  modules: ['nuxt-guided-tour'],
+  guidedTour: {
+    // Optional: customize the highlight ring color (default: '#7c3aed' purple)
+    highlightColor: '#7c3aed',
+    // Optional: brighter variant for the pulse animation peak
+    // (auto-derived from highlightColor if omitted)
+    highlightColorBright: '#a78bfa',
+  }
 })
 ```
 
@@ -125,6 +134,123 @@ onMounted(() => {
   />
 </template>
 ```
+
+---
+
+## Customizing Colors
+
+The tour highlight defaults to purple. There are three ways to customize it, from simplest to most flexible:
+
+### Option 1: nuxt.config.ts (quickest)
+
+Set the primary colors in your Nuxt config:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['nuxt-guided-tour'],
+  guidedTour: {
+    highlightColor: '#e11d48',       // rose-600
+    highlightColorBright: '#fb7185', // rose-400
+  }
+})
+```
+
+### Option 2: CSS variables (more control)
+
+Override any `--tour-*` variable in your own CSS. This gives you control over colors, geometry, glow intensities, and animation:
+
+```css
+:root {
+  /* Primary colors */
+  --tour-highlight: #2563eb;
+  --tour-highlight-bright: #60a5fa;
+
+  /* Ring geometry */
+  --tour-border-width: 4px;
+  --tour-border-radius: 8px;
+
+  /* Glow intensities (0%–100%) */
+  --tour-glow-ring-opacity: 50%;
+  --tour-glow-near-opacity: 80%;
+
+  /* Animation */
+  --tour-pulse-duration: 1.5s;
+  --tour-pulse-scale: 1.02;
+
+  /* Dark mode (inherits from above if not set) */
+  --tour-dark-highlight: #3b82f6;
+  --tour-dark-highlight-bright: #93c5fd;
+}
+```
+
+### Option 3: Theme file (full control)
+
+The module ships a fully documented theme template. Copy it into your project and uncomment the variables you want to change:
+
+```bash
+cp node_modules/nuxt-guided-tour/dist/runtime/styles/tour-theme.css assets/css/tour-theme.css
+```
+
+Then import it in your `nuxt.config.ts`:
+
+```ts
+css: ['~/assets/css/tour-theme.css']
+```
+
+Or append it to your existing CSS file:
+
+```css
+@import 'nuxt-guided-tour/theme';
+```
+
+The theme file documents every available variable with descriptions and preset color palettes (purple, blue, rose, amber, emerald, cyan).
+
+### All CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--tour-highlight` | `#7c3aed` | Base highlight ring color |
+| `--tour-highlight-bright` | `#a78bfa` | Brighter pulse peak color |
+| `--tour-border-width` | `5px` | Highlight border thickness |
+| `--tour-border-radius` | `10px` | Highlight border rounding |
+| `--tour-ring-offset` | `-8px` | Ring distance from element edge |
+| `--tour-ring-spread` | `8px` | Outer ring spread at rest |
+| `--tour-ring-spread-pulse` | `12px` | Outer ring spread at pulse peak |
+| `--tour-glow-ring-opacity` | `60%` | Ring glow intensity |
+| `--tour-glow-near-opacity` | `90%` | Close glow intensity |
+| `--tour-glow-mid-opacity` | `60%` | Medium glow intensity |
+| `--tour-glow-far-opacity` | `30%` | Far glow intensity |
+| `--tour-glow-inset-opacity` | `20%` | Inset glow intensity |
+| `--tour-glow-near` | `40px` | Close glow radius |
+| `--tour-glow-mid` | `80px` | Medium glow radius |
+| `--tour-glow-far` | `120px` | Far glow radius |
+| `--tour-glow-inset` | `25px` | Inset glow radius |
+| `--tour-pulse-duration` | `1s` | Pulse animation cycle time |
+| `--tour-pulse-scale` | `1.03` | Scale factor at pulse peak |
+| `--tour-dark-highlight` | inherited | Dark mode base color |
+| `--tour-dark-highlight-bright` | inherited | Dark mode bright color |
+| `--tour-dark-ring-spread` | `10px` | Dark mode ring spread |
+| `--tour-dark-ring-spread-pulse` | `14px` | Dark mode pulse spread |
+| `--tour-dark-pulse-scale` | `1.04` | Dark mode pulse scale |
+| `--tour-focus-width` | `3px` | Keyboard focus outline width |
+| `--tour-focus-offset` | `6px` | Keyboard focus outline gap |
+| `--tour-backdrop-color` | `rgba(0,0,0,0.5)` | Overlay backdrop color |
+| `--tour-z-popover` | `99999` | Popover z-index |
+| `--tour-z-highlight` | `9998` | Highlighted element z-index |
+
+### Module Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `highlightColor` | `#7c3aed` | Sets `--tour-highlight` |
+| `highlightColorBright` | `#a78bfa` | Sets `--tour-highlight-bright` (auto-derived if omitted) |
+| `prefix` | `Tour` | Component name prefix (`TourOverlay`, `TourTrigger`, etc.) |
+
+---
+
+## Package Size
+
+The published npm package is **~12 kB** gzipped (~52 kB unpacked). It has two runtime dependencies (`@nuxt/kit` and `@nuxt/schema`) and requires `nuxt`, `@nuxt/ui`, and `@vueuse/core` as peer dependencies.
 
 ---
 

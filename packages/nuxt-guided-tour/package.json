@@ -12,7 +12,8 @@
     ".": {
       "types": "./dist/types.d.mts",
       "import": "./dist/module.mjs"
-    }
+    },
+    "./theme": "./dist/runtime/styles/tour-theme.css"
   },
   "main": "./dist/module.mjs",
   "types": "./dist/types.d.mts",

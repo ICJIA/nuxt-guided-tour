@@ -1,0 +1,172 @@
+/**
+ * nuxt-guided-tour — Theme Overrides
+ * ===================================
+ *
+ * Copy this file into your project (e.g. assets/css/tour-theme.css) and import
+ * it in your nuxt.config.ts or main CSS file to customize the tour appearance.
+ *
+ *   // nuxt.config.ts
+ *   css: ['~/assets/css/tour-theme.css']
+ *
+ *   // or in your main.css
+ *   @import './tour-theme.css';
+ *
+ * Only uncomment the variables you want to change. Everything else falls back
+ * to the module's built-in defaults.
+ *
+ * Color tips:
+ *   - highlightBright should be a lighter tint of highlight (for the pulse peak)
+ *   - Use https://oklch.com or Tailwind's palette for accessible color pairs
+ *   - The glow uses color-mix() to derive semi-transparent variants automatically
+ *
+ * Preset examples (uncomment one block):
+ *
+ *   Purple (default):  --tour-highlight: #7c3aed; --tour-highlight-bright: #a78bfa;
+ *   Blue:              --tour-highlight: #2563eb; --tour-highlight-bright: #60a5fa;
+ *   Rose:              --tour-highlight: #e11d48; --tour-highlight-bright: #fb7185;
+ *   Amber:             --tour-highlight: #d97706; --tour-highlight-bright: #fbbf24;
+ *   Emerald:           --tour-highlight: #059669; --tour-highlight-bright: #34d399;
+ *   Cyan:              --tour-highlight: #0891b2; --tour-highlight-bright: #22d3ee;
+ */
+
+:root {
+
+  /* ===========================================================================
+     PRIMARY COLORS
+     The two most important variables. Set these and the rest adapts.
+     =========================================================================== */
+
+  /* Base highlight ring color */
+  /* --tour-highlight: #7c3aed; */
+
+  /* Brighter variant shown at the pulse peak */
+  /* --tour-highlight-bright: #a78bfa; */
+
+
+  /* ===========================================================================
+     RING GEOMETRY
+     Controls the size and shape of the highlight border around elements.
+     =========================================================================== */
+
+  /* Border thickness of the highlight ring */
+  /* --tour-border-width: 5px; */
+
+  /* Corner rounding of the highlight ring */
+  /* --tour-border-radius: 10px; */
+
+  /* How far the ring extends beyond the element (negative = outward) */
+  /* --tour-ring-offset: -8px; */
+
+  /* Outer ring spread at rest */
+  /* --tour-ring-spread: 8px; */
+
+  /* Outer ring spread at the pulse peak */
+  /* --tour-ring-spread-pulse: 12px; */
+
+
+  /* ===========================================================================
+     GLOW INTENSITIES
+     Controls how opaque each glow layer is. Values are 0%–100%.
+     Higher = more visible. These are used as color-mix() percentages.
+     =========================================================================== */
+
+  /* Outer ring glow (the solid-looking ring around the border) */
+  /* --tour-glow-ring-opacity: 60%; */
+
+  /* Close glow (tight around the element) */
+  /* --tour-glow-near-opacity: 90%; */
+
+  /* Medium glow (softer spread) */
+  /* --tour-glow-mid-opacity: 60%; */
+
+  /* Far glow (subtle outer halo) */
+  /* --tour-glow-far-opacity: 30%; */
+
+  /* Inset glow (inside the element) */
+  /* --tour-glow-inset-opacity: 20%; */
+
+
+  /* ===========================================================================
+     GLOW RADII
+     Controls how far each glow layer extends outward (in px).
+     =========================================================================== */
+
+  /* Close glow radius */
+  /* --tour-glow-near: 40px; */
+
+  /* Medium glow radius */
+  /* --tour-glow-mid: 80px; */
+
+  /* Far glow radius */
+  /* --tour-glow-far: 120px; */
+
+  /* Inset glow radius */
+  /* --tour-glow-inset: 25px; */
+
+
+  /* ===========================================================================
+     ANIMATION
+     Controls the pulsing animation timing and intensity.
+     =========================================================================== */
+
+  /* Duration of one pulse cycle */
+  /* --tour-pulse-duration: 1s; */
+
+  /* Scale factor at the pulse peak (1 = no scale, 1.03 = subtle zoom) */
+  /* --tour-pulse-scale: 1.03; */
+
+
+  /* ===========================================================================
+     DARK MODE
+     Separate color and geometry overrides for .dark mode.
+     By default these inherit from the light-mode values.
+     =========================================================================== */
+
+  /* Dark mode base highlight (defaults to --tour-highlight) */
+  /* --tour-dark-highlight: var(--tour-highlight); */
+
+  /* Dark mode bright variant (defaults to --tour-highlight-bright) */
+  /* --tour-dark-highlight-bright: var(--tour-highlight-bright); */
+
+  /* Dark mode ring spread at rest */
+  /* --tour-dark-ring-spread: 10px; */
+
+  /* Dark mode ring spread at pulse peak */
+  /* --tour-dark-ring-spread-pulse: 14px; */
+
+  /* Dark mode pulse scale */
+  /* --tour-dark-pulse-scale: 1.04; */
+
+
+  /* ===========================================================================
+     FOCUS RING
+     Keyboard-focus outline shown when the highlighted element receives focus.
+     =========================================================================== */
+
+  /* Focus outline thickness */
+  /* --tour-focus-width: 3px; */
+
+  /* Gap between element and focus outline */
+  /* --tour-focus-offset: 6px; */
+
+
+  /* ===========================================================================
+     BACKDROP
+     The overlay behind the tour popover card (if used).
+     =========================================================================== */
+
+  /* Backdrop color (typically semi-transparent black) */
+  /* --tour-backdrop-color: rgba(0, 0, 0, 0.5); */
+
+
+  /* ===========================================================================
+     Z-INDEX LAYERS
+     Adjust if the tour conflicts with other z-indexed elements in your app.
+     =========================================================================== */
+
+  /* Tour popover / dialog z-index */
+  /* --tour-z-popover: 99999; */
+
+  /* Highlighted element z-index (should be just below popover) */
+  /* --tour-z-highlight: 9998; */
+}

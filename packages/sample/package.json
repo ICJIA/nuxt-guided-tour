@@ -8,11 +8,12 @@
     "preview": "nuxi preview"
   },
   "dependencies": {
-    "nuxt": "^3.17.0",
-    "@nuxt/ui": "^3.0.0",
-    "nuxt-guided-tour": "workspace:*",
+    "@iconify-json/heroicons": "^1.2.0",
+    "@nuxt/ui": "^4.5.0",
     "@vueuse/core": "^12.0.0",
     "@vueuse/nuxt": "^12.0.0",
-    "@iconify-json/heroicons": "^1.2.0"
+    "nuxt": "^4.3.1",
+    "nuxt-guided-tour": "workspace:*",
+    "tailwindcss": "^4.2.1"
   }
 }

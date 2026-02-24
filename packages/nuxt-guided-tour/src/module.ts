@@ -6,6 +6,18 @@ export interface ModuleOptions {
    * @default 'Tour'
    */
   prefix?: string
+
+  /**
+   * Highlight ring color (any valid CSS color).
+   * @default '#7c3aed' (purple)
+   */
+  highlightColor?: string
+
+  /**
+   * Brighter variant used for the pulse peak. If not set, auto-derived
+   * by mixing the highlight color with white.
+   */
+  highlightColorBright?: string
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -17,7 +29,9 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   defaults: {
-    prefix: 'Tour'
+    prefix: 'Tour',
+    highlightColor: '#7c3aed',
+    highlightColorBright: '#a78bfa'
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -37,5 +51,16 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Push tour CSS
     nuxt.options.css.push(resolve('./runtime/styles/tour.css'))
+
+    // Inject highlight color overrides if customised
+    const base = options.highlightColor ?? '#7c3aed'
+    const bright = options.highlightColorBright ?? `color-mix(in srgb, ${base} 60%, white)`
+
+    nuxt.options.app.head = nuxt.options.app.head || {}
+    const head = nuxt.options.app.head as { style?: Array<{ textContent: string }> }
+    head.style = head.style || []
+    head.style.push({
+      textContent: `:root{--tour-highlight:${base};--tour-highlight-bright:${bright}}`
+    })
   }
 })
