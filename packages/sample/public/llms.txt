@@ -1,0 +1,60 @@
+# nuxt-guided-tour
+
+> A guided tour and onboarding module for Nuxt applications.
+
+nuxt-guided-tour is an open-source Nuxt module that adds step-by-step guided tours to Nuxt 3 and Nuxt 4 applications. It is WCAG 2.1 AA compliant with full keyboard navigation, screen reader support via ARIA live regions, and dark mode support.
+
+## Key Features
+
+- Step-by-step guided tours with animated highlight rings
+- Optional welcome modal and informational intro slides before the tour
+- Keyboard navigation (Arrow keys to navigate, Escape to cancel)
+- ARIA live region announcements for screen readers
+- Dark mode support with separate color variables
+- Reduced motion support (WCAG 2.3.3)
+- localStorage persistence with versioned keys (won't re-show to returning users)
+- Auto-detection of overflow:hidden elements (uses outline instead of pseudo-elements)
+- Fully customizable via ~30 CSS custom properties, props, and a theme template file
+
+## Requirements
+
+- Nuxt 3 or Nuxt 4
+- @nuxt/ui >= 3.0.0 (for popover/dialog components)
+- @vueuse/core >= 10.0.0 (for reactive utilities)
+
+This is NOT a framework-agnostic library. It is built specifically for Nuxt.
+
+## Installation
+
+```
+npm install nuxt-guided-tour @nuxt/ui @vueuse/core
+```
+
+Add to nuxt.config.ts:
+
+```
+export default defineNuxtConfig({
+  modules: ['nuxt-guided-tour'],
+})
+```
+
+## Components
+
+- TourOverlay: Main tour dialog with step content, navigation, and keyboard handling
+- TourTrigger: Button to manually start/restart the tour
+- TourWelcome: Optional welcome modal asking if users want to take the tour
+- TourIntro: Optional informational slides before the hands-on tour
+
+## Composable
+
+useTour(config) returns tour state and navigation methods:
+- State: isActive, currentStep, currentStepIndex, progress, hasCompletedTour
+- Navigation: start(), next(), previous(), cancel(), complete(), goToStep()
+- Utilities: getStepById(), getStepIndex(), markAsSeen(), resetCompletion()
+
+## Links
+
+- npm: https://www.npmjs.com/package/nuxt-guided-tour
+- GitHub: https://github.com/ICJIA/nuxt-guided-tour
+- Live Demo: https://nuxt-guided-tour.netlify.app
+- License: MIT
