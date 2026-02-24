@@ -44,6 +44,15 @@ function restartTour() {
             size="sm"
             @click="restartTour"
           />
+          <a
+            href="https://github.com/ICJIA/nuxt-guided-tour"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View on GitHub"
+            class="github-link"
+          >
+            <UIcon name="i-simple-icons-github" class="github-icon" />
+          </a>
         </nav>
       </div>
     </header>
@@ -121,6 +130,16 @@ function restartTour() {
       <p>nuxt-guided-tour sample site &mdash; MIT License</p>
       <p class="footer-hint">
         View <code>tour.config.ts</code> to see how these tour steps are defined.
+      </p>
+      <p class="footer-github">
+        <a
+          href="https://github.com/ICJIA/nuxt-guided-tour"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <UIcon name="i-simple-icons-github" class="footer-github-icon" />
+          View on GitHub
+        </a>
       </p>
     </footer>
 
@@ -344,5 +363,45 @@ body {
   background: var(--ui-bg-elevated);
   border-radius: 0.25rem;
   font-size: 0.9em;
+}
+
+/* GitHub links */
+.github-link {
+  display: flex;
+  align-items: center;
+  color: var(--ui-text-muted);
+  transition: color 0.15s ease;
+}
+
+.github-link:hover {
+  color: var(--ui-text);
+}
+
+.github-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.footer-github {
+  margin-top: 0.5rem;
+}
+
+.footer-github a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--ui-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.15s ease;
+}
+
+.footer-github a:hover {
+  color: var(--ui-text);
+}
+
+.footer-github-icon {
+  width: 1rem;
+  height: 1rem;
 }
 </style>

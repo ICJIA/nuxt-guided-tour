@@ -7,6 +7,8 @@ A guided tour/onboarding module for Nuxt applications. WCAG 2.1 AA compliant wit
 
 **[Live Demo](https://nuxt-guided-tour.netlify.app)**
 
+> **Nuxt-specific** — This module is built on `@nuxt/kit` and requires Nuxt 3 or 4. It is not a framework-agnostic library. It relies on [Nuxt UI](https://ui.nuxt.com) for popover/dialog components and [VueUse](https://vueuse.org) for reactive utilities. If you need a guided tour for a non-Nuxt project, consider libraries like [Shepherd.js](https://shepherdjs.dev) or [Driver.js](https://driverjs.com).
+
 ## Features
 
 - Step-by-step guided tours with vivid highlight rings
@@ -250,7 +252,7 @@ The theme file documents every available variable with descriptions and preset c
 
 ## Package Size
 
-The published npm package is **~12 kB** gzipped (~52 kB unpacked). It has two runtime dependencies (`@nuxt/kit` and `@nuxt/schema`) and requires `nuxt`, `@nuxt/ui`, and `@vueuse/core` as peer dependencies.
+The published npm package is **~11.5 kB** gzipped (~53 kB unpacked, 23 files). Its two dependencies (`@nuxt/kit` and `@nuxt/schema`) are already part of every Nuxt project, so in practice the module adds only its own CSS, 4 Vue components, 1 composable, and type definitions — no new transitive dependencies.
 
 ---
 
