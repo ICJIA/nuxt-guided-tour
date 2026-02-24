@@ -67,11 +67,11 @@ Add to `nuxt.config.ts`:
 export default defineNuxtConfig({
   modules: ['nuxt-guided-tour'],
   guidedTour: {
-    // Optional: customize the highlight ring color (default: '#7c3aed' purple)
-    highlightColor: '#7c3aed',
+    // Optional: customize the highlight ring color (default: '#22c55e' green)
+    highlightColor: '#22c55e',
     // Optional: brighter variant for the pulse animation peak
     // (auto-derived from highlightColor if omitted)
-    highlightColorBright: '#a78bfa',
+    highlightColorBright: '#4ade80',
   }
 })
 ```
@@ -139,7 +139,7 @@ onMounted(() => {
 
 ## Customizing Colors
 
-The tour highlight defaults to purple. There are three ways to customize it, from simplest to most flexible:
+The tour highlight defaults to green (`#22c55e`). There are three ways to customize it, from simplest to most flexible:
 
 ### Option 1: nuxt.config.ts (quickest)
 
@@ -203,14 +203,14 @@ Or append it to your existing CSS file:
 @import 'nuxt-guided-tour/theme';
 ```
 
-The theme file documents every available variable with descriptions and preset color palettes (purple, blue, rose, amber, emerald, cyan).
+The theme file documents every available variable with descriptions and preset color palettes (green, blue, purple, rose, amber, cyan).
 
 ### All CSS Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `--tour-highlight` | `#7c3aed` | Base highlight ring color |
-| `--tour-highlight-bright` | `#a78bfa` | Brighter pulse peak color |
+| `--tour-highlight` | `#22c55e` | Base highlight ring color |
+| `--tour-highlight-bright` | `#4ade80` | Brighter pulse peak color |
 | `--tour-border-width` | `5px` | Highlight border thickness |
 | `--tour-border-radius` | `10px` | Highlight border rounding |
 | `--tour-ring-offset` | `-8px` | Ring distance from element edge |
@@ -242,8 +242,8 @@ The theme file documents every available variable with descriptions and preset c
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `highlightColor` | `#7c3aed` | Sets `--tour-highlight` |
-| `highlightColorBright` | `#a78bfa` | Sets `--tour-highlight-bright` (auto-derived if omitted) |
+| `highlightColor` | `#22c55e` | Sets `--tour-highlight` |
+| `highlightColorBright` | `#4ade80` | Sets `--tour-highlight-bright` (auto-derived if omitted) |
 | `prefix` | `Tour` | Component name prefix (`TourOverlay`, `TourTrigger`, etc.) |
 
 ---

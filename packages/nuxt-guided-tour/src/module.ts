@@ -9,7 +9,7 @@ export interface ModuleOptions {
 
   /**
    * Highlight ring color (any valid CSS color).
-   * @default '#7c3aed' (purple)
+   * @default '#22c55e' (green)
    */
   highlightColor?: string
 
@@ -30,8 +30,8 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'Tour',
-    highlightColor: '#7c3aed',
-    highlightColorBright: '#a78bfa'
+    highlightColor: '#22c55e',
+    highlightColorBright: '#4ade80'
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)

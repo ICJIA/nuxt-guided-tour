@@ -21,7 +21,7 @@
  *
  * Preset examples (uncomment one block):
  *
- *   Purple (default):  --tour-highlight: #7c3aed; --tour-highlight-bright: #a78bfa;
+ *   Green (default):   --tour-highlight: #22c55e; --tour-highlight-bright: #4ade80;
  *   Blue:              --tour-highlight: #2563eb; --tour-highlight-bright: #60a5fa;
  *   Rose:              --tour-highlight: #e11d48; --tour-highlight-bright: #fb7185;
  *   Amber:             --tour-highlight: #d97706; --tour-highlight-bright: #fbbf24;
@@ -37,10 +37,10 @@
      =========================================================================== */
 
   /* Base highlight ring color */
-  /* --tour-highlight: #7c3aed; */
+  /* --tour-highlight: #22c55e; */
 
   /* Brighter variant shown at the pulse peak */
-  /* --tour-highlight-bright: #a78bfa; */
+  /* --tour-highlight-bright: #4ade80; */
 
 
   /* ===========================================================================
@@ -123,10 +123,10 @@
      =========================================================================== */
 
   /* Dark mode base highlight (defaults to --tour-highlight) */
-  /* --tour-dark-highlight: var(--tour-highlight); */
+  /* --tour-dark-highlight: #22c55e; */
 
   /* Dark mode bright variant (defaults to --tour-highlight-bright) */
-  /* --tour-dark-highlight-bright: var(--tour-highlight-bright); */
+  /* --tour-dark-highlight-bright: #4ade80; */
 
   /* Dark mode ring spread at rest */
   /* --tour-dark-ring-spread: 10px; */

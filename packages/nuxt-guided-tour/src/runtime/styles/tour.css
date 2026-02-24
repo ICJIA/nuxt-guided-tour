@@ -17,8 +17,8 @@
 
 :root {
   /* ---- Primary colors ---- */
-  --tour-highlight: #7c3aed;
-  --tour-highlight-bright: #a78bfa;
+  --tour-highlight: #22c55e;
+  --tour-highlight-bright: #4ade80;
 
   /* ---- Ring geometry ---- */
   --tour-border-width: 5px;

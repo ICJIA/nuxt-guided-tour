@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt'
   ],
   guidedTour: {
-    highlightColor: '#7c3aed',
+    // Uses the default green (#22c55e). Uncomment to override:
+    // highlightColor: '#7c3aed',
   },
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
