@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="nuxt-guided-tour banner" width="100%">
+</p>
+
 # nuxt-guided-tour
 
 [![npm version](https://img.shields.io/npm/v/nuxt-guided-tour.svg)](https://www.npmjs.com/package/nuxt-guided-tour)
@@ -6,6 +10,10 @@
 A guided tour/onboarding module for Nuxt applications. WCAG 2.1 AA compliant with full keyboard navigation and screen reader support.
 
 **[Live Demo](https://nuxt-guided-tour.netlify.app)**
+
+<p align="center">
+  <img src="assets/tour-screenshot.png" alt="Tour step highlighting the About nav link with a green glow ring" width="720">
+</p>
 
 > **Nuxt-specific** — This module is built on `@nuxt/kit` and requires Nuxt 3 or 4. It is not a framework-agnostic library. It relies on [Nuxt UI](https://ui.nuxt.com) for popover/dialog components and [VueUse](https://vueuse.org) for reactive utilities. If you need a guided tour for a non-Nuxt project, consider libraries like [Shepherd.js](https://shepherdjs.dev) or [Driver.js](https://driverjs.com).
 
