@@ -5,26 +5,22 @@
       <stop offset="0%" stop-color="#0a0a0a"/>
       <stop offset="100%" stop-color="#171717"/>
     </linearGradient>
-    <!-- Green glow gradient -->
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.18"/>
-      <stop offset="60%" stop-color="#22c55e" stop-opacity="0.04"/>
+    <!-- Subtle center glow -->
+    <radialGradient id="glow" cx="50%" cy="60%" r="45%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.06"/>
       <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
-    </radialGradient>
-    <!-- Top-left accent glow -->
-    <radialGradient id="glow-tl" cx="20%" cy="25%" r="40%">
-      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
     </radialGradient>
     <!-- Subtle grid pattern -->
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
     </pattern>
-    <!-- Pulse ring filter -->
-    <filter id="ring-glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+    <!-- Highlight ring glow -->
+    <filter id="ring-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur2"/>
       <feMerge>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
@@ -38,39 +34,44 @@
   <rect width="1280" height="640" fill="url(#bg)"/>
   <rect width="1280" height="640" fill="url(#grid)"/>
   <rect width="1280" height="640" fill="url(#glow)"/>
-  <rect width="1280" height="640" fill="url(#glow-tl)"/>
 
-  <!-- Decorative highlight ring (top-right) -->
-  <rect x="920" y="60" width="200" height="120" rx="12" fill="none" stroke="#22c55e" stroke-width="3" stroke-opacity="0.25" filter="url(#ring-glow)"/>
-  <rect x="922" y="62" width="196" height="116" rx="10" fill="#22c55e" fill-opacity="0.04"/>
+  <!-- ============================================================
+       Mock nav bar (right side) to give context for the highlight
+       ============================================================ -->
+  <g transform="translate(640, 62)" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+    <!-- Nav bar background -->
+    <rect x="-540" y="-22" width="1080" height="44" rx="8" fill="#1a1a1a" stroke="#262626" stroke-width="1"/>
 
-  <!-- Decorative highlight ring (bottom-left) -->
-  <rect x="140" y="440" width="160" height="90" rx="10" fill="none" stroke="#22c55e" stroke-width="3" stroke-opacity="0.20" filter="url(#ring-glow)"/>
-  <rect x="142" y="442" width="156" height="86" rx="8" fill="#22c55e" fill-opacity="0.03"/>
+    <!-- Logo text -->
+    <text x="-490" y="6" font-size="16" font-weight="800" fill="#22c55e">SampleApp</text>
 
-  <!-- Small decorative dots -->
-  <circle cx="1100" cy="500" r="3" fill="#22c55e" opacity="0.3"/>
-  <circle cx="1140" cy="480" r="2" fill="#4ade80" opacity="0.2"/>
-  <circle cx="180" cy="180" r="2.5" fill="#22c55e" opacity="0.25"/>
-  <circle cx="210" cy="200" r="1.5" fill="#4ade80" opacity="0.2"/>
+    <!-- Nav links -->
+    <text x="280" y="6" text-anchor="middle" font-size="14" font-weight="500" fill="#737373">Home</text>
+    <text x="390" y="6" text-anchor="middle" font-size="14" font-weight="500" fill="#d4d4d4">About</text>
+    <text x="490" y="6" text-anchor="middle" font-size="14" font-weight="500" fill="#737373">Contact</text>
+
+    <!-- Highlight ring around "About" link -->
+    <rect x="354" y="-14" width="72" height="30" rx="10" fill="none" stroke="#22c55e" stroke-width="4" filter="url(#ring-glow)"/>
+    <rect x="354" y="-14" width="72" height="30" rx="10" fill="none" stroke="#4ade80" stroke-width="2" opacity="0.5"/>
+  </g>
 
   <!-- Nuxt logo hint (green triangle) -->
-  <g transform="translate(640,155)" opacity="0.12">
-    <polygon points="0,-50 43,25 -43,25" fill="#22c55e"/>
-    <polygon points="0,-30 25,15 -25,15" fill="#0a0a0a"/>
+  <g transform="translate(640,170)" opacity="0.10">
+    <polygon points="0,-42 37,21 -37,21" fill="#22c55e"/>
+    <polygon points="0,-25 21,12 -21,12" fill="#0a0a0a"/>
   </g>
 
   <!-- Title -->
-  <text x="640" y="290" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="56" font-weight="800" fill="#f5f5f5" letter-spacing="-1">
+  <text x="640" y="280" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="56" font-weight="800" fill="#f5f5f5" letter-spacing="-1">
     nuxt-guided-tour
   </text>
   <!-- Title glow -->
-  <text x="640" y="290" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="56" font-weight="800" fill="#22c55e" letter-spacing="-1" filter="url(#text-glow)" opacity="0.3">
+  <text x="640" y="280" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="56" font-weight="800" fill="#22c55e" letter-spacing="-1" filter="url(#text-glow)" opacity="0.25">
     nuxt-guided-tour
   </text>
 
   <!-- Subtitle -->
-  <text x="640" y="340" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="22" font-weight="400" fill="#a3a3a3">
+  <text x="640" y="330" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="22" font-weight="400" fill="#a3a3a3">
     Guided tours &amp; onboarding for Nuxt applications
   </text>
 
@@ -88,9 +89,19 @@
     <!-- Customizable -->
     <rect x="80" y="-14" width="120" height="28" rx="14" fill="#22c55e" fill-opacity="0.12" stroke="#22c55e" stroke-opacity="0.25" stroke-width="1"/>
     <text x="140" y="5" text-anchor="middle" fill="#4ade80">Customizable</text>
-    <!-- Nuxt 3/4 -->
+    <!-- Nuxt 3 & 4 -->
     <rect x="230" y="-14" width="100" height="28" rx="14" fill="#22c55e" fill-opacity="0.12" stroke="#22c55e" stroke-opacity="0.25" stroke-width="1"/>
     <text x="280" y="5" text-anchor="middle" fill="#4ade80">Nuxt 3 &amp; 4</text>
+  </g>
+
+  <!-- Popover card hint (below the nav highlight) -->
+  <g transform="translate(640, 62)" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+    <!-- Popover arrow -->
+    <polygon points="390,24 382,34 398,34" fill="#262626"/>
+    <!-- Popover body -->
+    <rect x="330" y="34" width="120" height="48" rx="8" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+    <text x="390" y="54" text-anchor="middle" font-size="12" font-weight="600" fill="#e5e5e5">About</text>
+    <text x="390" y="72" text-anchor="middle" font-size="10" fill="#737373">Learn more</text>
   </g>
 
   <!-- Bottom bar accent -->
