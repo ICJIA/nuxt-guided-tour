@@ -26,7 +26,8 @@
     "prepack": "nuxt-module-build build"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.17.0"
+    "@nuxt/kit": "^3.17.0",
+    "@nuxt/schema": "^3.17.0"
   },
   "peerDependencies": {
     "@nuxt/ui": ">=3.0.0",
