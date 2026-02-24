@@ -239,6 +239,24 @@ yarn workspace nuxt-guided-tour-docs dev
 
 ---
 
+## Publishing to npm
+
+A publish script is included at `packages/nuxt-guided-tour/publish.sh`. It bumps the version, builds, runs a dry run, and publishes on confirmation.
+
+```bash
+cd packages/nuxt-guided-tour
+./publish.sh
+```
+
+The script will:
+1. Show the current version and prompt for **patch**, **minor**, or **major** bump
+2. Update `package.json` and build the module
+3. Run `npm publish --dry-run`
+4. If the dry run passes, ask for confirmation before publishing
+5. If the dry run fails, revert the version automatically
+
+---
+
 ## Development (Contributing)
 
 ### Prerequisites
